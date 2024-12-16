@@ -1,0 +1,17 @@
+.card {
+    width: 90%;
+    margin: auto;
+    background-color: rgb(235,235,235);
+}
+
+img {
+    height: 20rem;
+    width: 20rem;
+    display: grid;
+}
+
+.img-home {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
