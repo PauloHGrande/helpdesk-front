@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Credenciais } from 'src/app/models/credenciais';
 
 @Component({
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
     senha: ''
   }
   
-  email = new FormControl(null, Validators.email);
-  senha = new FormControl(null, Validators.minLength(3));
+  email = new UntypedFormControl(null, Validators.email);
+  senha = new UntypedFormControl(null, Validators.minLength(3));
 
   constructor() { }
 
