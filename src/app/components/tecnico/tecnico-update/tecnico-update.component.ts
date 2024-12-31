@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
-  selector: 'app-tecnico-create',
-  templateUrl: './tecnico-create.component.html',
-  styleUrls: ['./tecnico-create.component.css']
+  selector: 'app-tecnico-update',
+  templateUrl: './tecnico-update.component.html',
+  styleUrls: ['./tecnico-update.component.css']
 })
-export class TecnicoCreateComponent {
+export class TecnicoUpdateComponent {
 
-  tecnico: Tecnico = {
+tecnico: Tecnico = {
     id: '',
     nome: '',
     cpf: '',
@@ -29,15 +29,28 @@ export class TecnicoCreateComponent {
 
   constructor(private service: TecnicoService, 
               private toast: ToastrService,
-              private router: Router) {}
+              private router: Router,
+              private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.tecnico.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
+  }            
 
   validaCampos(): boolean {
     return this.nome.valid && this.cpf.valid && this.email.valid && this.senha.valid
   }
 
-  create(): void {
-    this.service.create(this.tecnico).subscribe(resposta => {
-      this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
+  findById(): void {
+    this.service.findById(this.tecnico.id).subscribe(resposta => {
+      resposta.perfis = []
+      this.tecnico = resposta;
+    })
+  }
+
+  update(): void {
+    this.service.update(this.tecnico).subscribe(resposta => {
+      this.toast.success('Técnico atualizado com sucesso', 'Update');
       this.router.navigate(['tecnicos'])
     }, ex => {
       console.log(ex);
