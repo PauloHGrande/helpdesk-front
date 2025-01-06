@@ -7,15 +7,24 @@
     <form class="form">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Título</mat-label>
-            <input [formControl]="titulo" required matInput placeholder="Título do Chamado">
+            <input [(ngModel)]="chamado.titulo" 
+                   name="titulo" 
+                   [formControl]="titulo" 
+                   required 
+                   matInput 
+                   placeholder="Título do Chamado">
         </mat-form-field>
     </form>
 
     <div class="status-prioridade">
 
         <mat-form-field appearance="outline">
-          <mat-label>Selecione um Status</mat-label>
-          <mat-select [formControl]="status" required>
+          <mat-label for="status-select">Selecione um Status</mat-label>
+          <mat-select id="status-select"
+                      [(ngModel)]="chamado.status" 
+                      name="status" 
+                      [formControl]="status" 
+                      required>
             <mat-option value="1">Aberto</mat-option>
             <mat-option value="2">Em Andamento</mat-option>
             <mat-option value="3">Encerrado</mat-option>
@@ -23,8 +32,12 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Selecione uma Prioridade</mat-label>
-          <mat-select [formControl]="prioridade" required>
+          <mat-label for="prioridade-select">Selecione uma Prioridade</mat-label>
+          <mat-select id="prioridade-select" 
+                      [(ngModel)]="chamado.prioridade" 
+                      name="prioridade" 
+                      [formControl]="prioridade" 
+                      required>
             <mat-option value="1">Baixa</mat-option>
             <mat-option value="2">Média</mat-option>
             <mat-option value="3">Alta</mat-option>
@@ -35,18 +48,26 @@
 
     <div class="tecnico">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Selecione um Técnico</mat-label>
-          <mat-select [formControl]="tecnico" required>
-            <mat-option value="1">Baixa</mat-option>
+          <mat-label for="tecnico-select">Selecione um Técnico</mat-label>
+          <mat-select id="tecnico-select"
+                      [(ngModel)]="chamado.tecnico" 
+                      name="tecnico" 
+                      [formControl]="tecnico" 
+                      required>
+            <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{ tec.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
     </div>
 
     <div class="cliente">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Selecione um Cliente</mat-label>
-          <mat-select [formControl]="cliente" required>
-            <mat-option value="1">Baixa</mat-option>
+          <mat-label for="cliente-select">Selecione um Cliente</mat-label>
+          <mat-select id="cliente-select"
+                      [(ngModel)]="chamado.cliente" 
+                      name="cliente" 
+                      [formControl]="cliente" 
+                      required>
+            <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
     </div>
@@ -54,11 +75,16 @@
     <form class="form">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Descrição</mat-label>
-            <textarea [formControl]="descricao" required class="descricao" matInput placeholder="Descrição do Chamado"></textarea>
+            <textarea [(ngModel)]="chamado.observacoes" 
+                      name="observacoes" 
+                      [formControl]="observacoes" 
+                      required class="observacoes" 
+                      matInput 
+                      placeholder="Descrição do Chamado"></textarea>
         </mat-form-field>
     </form>
 
-    <button [disabled]="!validaCampos()" class="full-width mat-elevation-z6" mat-raised-button color="primary">Criar Chamado</button>
+    <button (click)="create()" [disabled]="!validaCampos()" class="full-width mat-elevation-z6" mat-raised-button color="primary">Criar Chamado</button>
     <button class="full-width mat-elevation-z6" mat-stroked-button color="warn">Cancelar</button>
 
 </div>
