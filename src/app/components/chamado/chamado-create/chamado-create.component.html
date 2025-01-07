@@ -19,12 +19,12 @@
     <div class="status-prioridade">
 
         <mat-form-field appearance="outline">
-          <mat-label for="status-select">Selecione um Status</mat-label>
           <mat-select id="status-select"
                       [(ngModel)]="chamado.status" 
                       name="status" 
                       [formControl]="status" 
-                      required>
+                      required
+                      placeholder="Selecione um Status*">
             <mat-option value="1">Aberto</mat-option>
             <mat-option value="2">Em Andamento</mat-option>
             <mat-option value="3">Encerrado</mat-option>
@@ -32,12 +32,12 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label for="prioridade-select">Selecione uma Prioridade</mat-label>
           <mat-select id="prioridade-select" 
                       [(ngModel)]="chamado.prioridade" 
                       name="prioridade" 
                       [formControl]="prioridade" 
-                      required>
+                      required
+                      placeholder="Selecione uma Prioridade*">
             <mat-option value="1">Baixa</mat-option>
             <mat-option value="2">Média</mat-option>
             <mat-option value="3">Alta</mat-option>
@@ -48,12 +48,12 @@
 
     <div class="tecnico">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label for="tecnico-select">Selecione um Técnico</mat-label>
           <mat-select id="tecnico-select"
                       [(ngModel)]="chamado.tecnico" 
                       name="tecnico" 
                       [formControl]="tecnico" 
-                      required>
+                      required
+                      placeholder="Selecione um Técnico*">
             <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{ tec.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -61,12 +61,12 @@
 
     <div class="cliente">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label for="cliente-select">Selecione um Cliente</mat-label>
-          <mat-select id="cliente-select"
+          <mat-select id="cliente_select"
                       [(ngModel)]="chamado.cliente" 
                       name="cliente" 
                       [formControl]="cliente" 
-                      required>
+                      required
+                      placeholder="Selecione um Cliente*">
             <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -85,6 +85,6 @@
     </form>
 
     <button (click)="create()" [disabled]="!validaCampos()" class="full-width mat-elevation-z6" mat-raised-button color="primary">Criar Chamado</button>
-    <button class="full-width mat-elevation-z6" mat-stroked-button color="warn">Cancelar</button>
+    <button routerLink="../" class="full-width mat-elevation-z6" mat-stroked-button color="warn">Cancelar</button>
 
 </div>
