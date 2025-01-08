@@ -1,4 +1,3 @@
-<p>chamado-update works!</p>
 <div class="img-home">
     <img src="assets/img/chamado-create.png" alt="Chamado Update">
 </div>
@@ -25,10 +24,10 @@
                       name="status" 
                       [formControl]="status" 
                       required
-                      placeholder="Selecione um Status*">
-            <mat-option value="1">Aberto</mat-option>
-            <mat-option value="2">Em Andamento</mat-option>
-            <mat-option value="3">Encerrado</mat-option>
+                      placeholder="Status ({{ retornaStatus(chamado.status )}})">
+            <mat-option value="0">Aberto</mat-option>
+            <mat-option value="1">Em Andamento</mat-option>
+            <mat-option value="2">Encerrado</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -38,10 +37,10 @@
                       name="prioridade" 
                       [formControl]="prioridade" 
                       required
-                      placeholder="Selecione uma Prioridade*">
-            <mat-option value="1">Baixa</mat-option>
-            <mat-option value="2">Média</mat-option>
-            <mat-option value="3">Alta</mat-option>
+                      placeholder="Prioridade ({{ retornaPrioridade(chamado.prioridade )}})">
+            <mat-option value="0">Baixa</mat-option>
+            <mat-option value="1">Média</mat-option>
+            <mat-option value="2">Alta</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -54,7 +53,7 @@
                       name="tecnico" 
                       [formControl]="tecnico" 
                       required
-                      placeholder="Selecione um Técnico*">
+                      placeholder="Técnico ({{ chamado.nomeTecnico }})">
             <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{ tec.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -67,7 +66,7 @@
                       name="cliente" 
                       [formControl]="cliente" 
                       required
-                      placeholder="Selecione um Cliente*">
+                      placeholder="Cliente ({{ chamado.nomeCliente }})">
             <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{ cli.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -86,6 +85,6 @@
     </form>
 
     <button (click)="update()" [disabled]="!validaCampos()" class="full-width mat-elevation-z6" mat-raised-button color="primary">Atualizar</button>
-    <button routerLink="../" class="full-width mat-elevation-z6" mat-stroked-button color="warn">Cancelar</button>
+    <button routerLink="../../" class="full-width mat-elevation-z6" mat-stroked-button color="warn">Cancelar</button>
 
 </div>

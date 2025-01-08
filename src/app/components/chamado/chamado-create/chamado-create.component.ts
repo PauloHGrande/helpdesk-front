@@ -51,6 +51,7 @@ export class ChamadoCreateComponent {
   }
 
   create(): void {
+    console.log(this.chamado)
     this.chamadoService.create(this.chamado).subscribe(resposta => {
       this.toastService.success('Chamado criado com Sucesso','Novo Chamado');
       this.router.navigate(['chamados']);
