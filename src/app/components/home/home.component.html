@@ -1,14 +1,50 @@
-<mat-card class="card mat-elevation-z8" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title>Help Desk</mat-card-title>
-      <mat-card-subtitle>Fantasma</mat-card-subtitle>
-    </mat-card-header>
-    <div class="img-home">
-        <img mat-card-image src="assets/img/home-image.png" alt="Help Desk Fantasma">
-    </div>
-    <mat-card-content>
-      <p>
-        Olá! Seja bem vindo ao sistema....
-      </p>
-    </mat-card-content>
-  </mat-card>
+<div class="container">
+  <mat-card class="card mat-elevation-z8" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Help Desk</mat-card-title>
+        <mat-card-subtitle>Fantasma</mat-card-subtitle>
+      </mat-card-header>
+      <div class="img-home">
+          <img mat-card-image src="assets/img/home-image.png" alt="Help Desk Fantasma">
+      </div>
+      <mat-tab-group dynamicHeight>
+        <mat-tab label="Back End">
+          <div class="small-box mat-elevation-z4">
+            <ul>
+              <p><b>API Rest usando Java com Spring Boot 3.4.1 e banco de dados MySQL. 
+                Usado JPA com Hibernate com validação de dados, 
+                tratamento de exceções, uso adequado do protocolo HTTP no padrão REST e muito mais.</b><br/><br/></p>
+              <li>Orientação a objetos com boas praticas</li>
+              <li>POO (Programação Orientada a Objetos) com Polimorfismo, Herança, Visibilidade, etc...</li>
+              <li>Spring Boot</li>
+              <li>Spring Security</li>
+              <li>Spring MVC</li>
+              <li>Spring Data JPA</li>
+              <li>Hibernate</li>
+              <li>Tokens JWT</li>
+              <li>Autenticação com Tokens JWT</li>
+              <li>Autorização com Tokens JWT</li>
+              <li>Autenticação e Autorização no front e no back</li> 
+            </ul>                     
+          </div>
+        </mat-tab>
+        <mat-tab label="Front End">
+          <div class="small-box mat-elevation-z4">
+            <ul>
+              <p><b>Utilizando Angular 18. Vamos explorar a arquitetura MVC do Angular, 
+                    componentes visuais do Angular Material, Angular reactive forms, navegação.</b><br/><br/></p>
+                
+              <li>Conceitos básicos de Typescript, HTML5 e CSS3</li>
+              <li>Rotas</li>
+              <li>Toast</li>
+              <li>Ngx</li>
+              <li>Angular Material</li>
+              <li>Http Client</li>
+              <li>Forms</li>
+            </ul>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+      <p><b>&copy; Desenvolvido por Paulo Henrique Grande</b></p>
+    </mat-card>
+</div>

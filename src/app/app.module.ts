@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Para Trabalhar com formularios no angular 12
+// Para Trabalhar com formularios no angular 18
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Para realizar requizição http
@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 //Componetes do projeto.
 import { NavComponent } from './components/nav/nav.component';
@@ -94,7 +95,8 @@ import { ChamadoReadComponent } from './components/chamado/chamado-read/chamado-
       closeButton: true,
       progressBar: true
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatTabsModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

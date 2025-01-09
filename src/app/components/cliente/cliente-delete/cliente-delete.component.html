@@ -1,8 +1,10 @@
+<div class="img-home">
+  <img src="assets/img/Cliente-Create.svg" alt="Help Desk - Cliente Create">
+</div>
+
 <div class="container mat-elevation-z8">
     
     <form class="form">
-
-        <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="Help Desk - Cliente Deletar">
 
         <section class="section">
           <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
@@ -10,7 +12,7 @@
           <mat-checkbox [disabled]="true" class="margin" color="primary">Técnico</mat-checkbox>
         </section>
 
-        <mat-form-field class="fullWidth" appearance="fill">
+        <mat-form-field class="fullWidth" appearance="outline">
           <mat-label>Nome</mat-label>
           <input [(ngModel)]="cliente.nome" 
                  name="nome" 
@@ -22,7 +24,7 @@
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="fill">
+        <mat-form-field class="fullWidth" appearance="outline">
           <mat-label>CPF</mat-label>
           <input [(ngModel)]="cliente.cpf" 
                  name="cpf" 
@@ -34,7 +36,7 @@
           <mat-icon matSuffix>pin</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="fill">
+        <mat-form-field class="fullWidth" appearance="outline">
           <mat-label>E-Mail</mat-label>
           <input [(ngModel)]="cliente.email" 
                  name="email" 
@@ -45,7 +47,7 @@
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
           
-        <mat-form-field class="fullWidth" appearance="fill">
+        <mat-form-field class="fullWidth" appearance="outline">
           <mat-label>Senha</mat-label>
           <input [(ngModel)]="cliente.senha" 
                  name="senha" 

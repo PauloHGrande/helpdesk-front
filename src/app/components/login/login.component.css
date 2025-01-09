@@ -14,10 +14,8 @@
     border-radius: 1rem;
 }
 
-img {
-    height: 12rem;
-    width: 100%;
-    margin: 1.5rem auto 1.5rem auto;
+input {
+    opacity: 6;
 }
 
 .full-width {
@@ -30,4 +28,22 @@ button {
 
 mat-icon {
     opacity: .6;
+}
+
+img {
+    height: 12rem;
+    width: 12rem;
+    display: flex;
+}
+
+.img-home {
+    display: flex;
+    justify-content: right;
+    height: 10px;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
